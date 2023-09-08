@@ -1,3 +1,5 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,10 +30,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red.shade100),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Primeiro Projeto - Página Inicial'),
     );
   }
 }
@@ -103,27 +105,29 @@ class _MyHomePageState extends State<MyHomePage> {
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            const Text(
-              'O botão foi pressionado:',
-              style: TextStyle(color: Color.fromARGB(100, 200, 0, 0)),
-            ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: const TextStyle(fontSize: 40),
             ),
             const Text(
-              'Vezes',
+              'Clique no botão para ver o contador aumentar',
+              style: TextStyle(
+                color: Color.fromARGB(200, 200, 0, 120),
+                fontWeight: FontWeight.w800,
+                fontSize: 15,
+              ),
+            ),
+            FloatingActionButton(
+              onPressed: _incrementCounter,
+              tooltip: 'Increment',
+              backgroundColor: const Color.fromARGB(99, 255, 98, 250),
+              child: const Icon(Icons.add_outlined),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
